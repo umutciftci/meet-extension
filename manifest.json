@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Google Meet Participant List",
+  "description": "Google Meet Participant List",
+  "version": "1.1",
+  "permissions": ["activeTab","tabs","background", "https://meet.google.com/*"],
+  "icons" : {
+    "48" : "google-logo.png"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["./content_script.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "google-logo.png",
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' https://meet.google.com/*; object-src 'self'"
+}
